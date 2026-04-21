@@ -1,0 +1,2332 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prata Aqua – Pure Water, Pure Life</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0b1f3a;
+      --deep: #0d2b52;
+      --blue: #1565c0;
+      --sky: #42a5f5;
+      --aqua: #00b4d8;
+      --crystal: #caf0f8;
+      --frost: #e8f4fd;
+      --white: #ffffff;
+      --gray: #64748b;
+      --light: #f0f7ff;
+      --accent: #00d4ff;
+      --success: #00c897;
+      --shadow: 0 4px 24px rgba(21, 101, 192, 0.12);
+      --shadow-lg: 0 12px 48px rgba(21, 101, 192, 0.18);
+      --radius: 16px;
+      --radius-sm: 8px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--light);
+      color: var(--navy);
+      overflow-x: hidden;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(66, 165, 245, 0.15);
+      box-shadow: 0 2px 20px rgba(21, 101, 192, 0.08);
+    }
+
+    .header-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-mark {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--blue), var(--aqua));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-shadow: 0 4px 14px rgba(0, 180, 216, 0.35);
+    }
+
+    .logo-mark::after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 20px;
+      background: white;
+      clip-path: polygon(50% 0%, 100% 60%, 80% 100%, 20% 100%, 0% 60%);
+      opacity: 0.9;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .logo-text span:first-child {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+    }
+
+    .logo-text span:last-child {
+      font-size: 0.65rem;
+      font-weight: 500;
+      color: var(--aqua);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--gray);
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 30px;
+      transition: all 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--blue);
+      background: var(--frost);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cart-btn {
+      position: relative;
+      background: linear-gradient(135deg, var(--blue), var(--aqua));
+      color: white;
+      border: none;
+      cursor: pointer;
+      padding: 8px 20px 8px 14px;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
+      box-shadow: 0 4px 14px rgba(0, 180, 216, 0.3);
+      transition: all 0.25s;
+    }
+
+    .cart-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(0, 180, 216, 0.4);
+    }
+
+    .cart-icon {
+      width: 22px;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cart-badge {
+      background: #ff4757;
+      color: white;
+      font-size: 0.65rem;
+      font-weight: 700;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      border: 2px solid white;
+      transition: transform 0.2s;
+    }
+
+    .cart-badge.pop {
+      animation: cartPop 0.3s ease;
+    }
+
+    @keyframes cartPop {
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.5);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--deep) 50%, #0a3060 100%);
+      padding: 80px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='500'%3E%3Ccircle cx='600' cy='100' r='300' fill='rgba(0,180,216,0.06)'/%3E%3Ccircle cx='100' cy='400' r='200' fill='rgba(21,101,192,0.08)'/%3E%3Ccircle cx='750' cy='400' r='150' fill='rgba(0,212,255,0.05)'/%3E%3C/svg%3E") no-repeat center/cover;
+    }
+
+    .hero-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-content {
+      color: white;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 180, 216, 0.15);
+      border: 1px solid rgba(0, 180, 216, 0.3);
+      color: var(--aqua);
+      padding: 5px 14px;
+      border-radius: 30px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero-title .accent {
+      color: var(--aqua);
+    }
+
+    .hero-desc {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 32px;
+      max-width: 460px;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--aqua), var(--sky));
+      color: white;
+      border: none;
+      cursor: pointer;
+      padding: 14px 32px;
+      border-radius: 40px;
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
+      box-shadow: 0 6px 24px rgba(0, 180, 216, 0.4);
+      transition: all 0.25s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(0, 180, 216, 0.5);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: white;
+      cursor: pointer;
+      padding: 14px 32px;
+      border-radius: 40px;
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
+      border: 1.5px solid rgba(255, 255, 255, 0.3);
+      transition: all 0.25s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.6);
+    }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 16px;
+    }
+
+    .bottle-card {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
+      padding: 16px 14px 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s;
+      animation: floatUp 3s ease-in-out infinite;
+      min-height: 220px;
+      justify-content: flex-end;
+    }
+
+    .bottle-card:nth-child(2) {
+      animation-delay: 0.5s;
+      margin-top: 30px;
+    }
+
+    .bottle-card:nth-child(3) {
+      animation-delay: 1s;
+    }
+
+    @keyframes floatUp {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .bottle-svg {
+      width: 64px;
+      max-height: 190px;
+      height: auto;
+      object-fit: contain;
+      border-radius: 8px;
+      display: block;
+    }
+
+    .bottle-label {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 36px;
+    }
+
+    .stat {
+      color: white;
+    }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--aqua);
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    /* ── FEATURES BAR ── */
+    .features-bar {
+      background: white;
+      border-bottom: 1px solid var(--crystal);
+      padding: 18px 24px;
+    }
+
+    .features-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      gap: 0;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 16px;
+      color: var(--navy);
+    }
+
+    .feature-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--frost);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--blue);
+    }
+
+    .feature-text strong {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .feature-text span {
+      font-size: 0.75rem;
+      color: var(--gray);
+    }
+
+    /* ── SECTION ── */
+    .section {
+      padding: 64px 24px;
+    }
+
+    .section-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      color: var(--aqua);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      color: var(--gray);
+      font-size: 1rem;
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ── PRODUCT GRID ── */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      border: 1px solid rgba(66, 165, 245, 0.1);
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(0, 180, 216, 0.25);
+    }
+
+    .product-badge-row {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      display: flex;
+      gap: 6px;
+      z-index: 2;
+    }
+
+    .badge {
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .badge-pure {
+      background: #e3f8ff;
+      color: #006994;
+    }
+
+    .badge-best {
+      background: #fff3cd;
+      color: #856404;
+    }
+
+    .badge-new {
+      background: #d4edda;
+      color: #155724;
+    }
+
+    .product-img-wrap {
+      background: linear-gradient(160deg, var(--frost) 0%, var(--crystal) 100%);
+      padding: 40px 20px 28px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      min-height: 220px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-img-wrap::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 20px;
+      background: rgba(0, 0, 0, 0.06);
+      border-radius: 50%;
+      filter: blur(6px);
+    }
+
+    .product-svg {
+      width: auto;
+      max-width: 100%;
+      max-height: 180px;
+      min-height: 140px;
+      object-fit: contain;
+      transition: transform 0.4s ease;
+      position: relative;
+      z-index: 1;
+      display: block;
+    }
+
+    .product-svg-fallback {
+      width: 90px;
+      height: 170px;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-svg-fallback svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 12px 24px rgba(21,101,192,.35));
+      transition: transform 0.4s ease;
+    }
+
+    .product-card:hover .product-svg-fallback svg {
+      transform: scale(1.05) translateY(-4px);
+    }
+
+    .product-info {
+      padding: 20px 22px 22px;
+    }
+
+    .product-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .product-desc {
+      font-size: 0.85rem;
+      color: var(--gray);
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    .product-meta {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .meta-tag {
+      font-size: 0.72rem;
+      font-weight: 500;
+      background: var(--frost);
+      color: var(--blue);
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    .product-price {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .price-main {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--navy);
+      font-family: 'Playfair Display', serif;
+    }
+
+    .price-unit {
+      font-size: 0.8rem;
+      color: var(--gray);
+    }
+
+    .product-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .qty-control {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      border: 1.5px solid var(--crystal);
+      border-radius: 30px;
+      overflow: hidden;
+    }
+
+    .qty-btn {
+      width: 34px;
+      height: 34px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+    }
+
+    .qty-btn:hover {
+      background: var(--frost);
+    }
+
+    .qty-val {
+      min-width: 34px;
+      text-align: center;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .add-cart-btn {
+      flex: 1;
+      background: linear-gradient(135deg, var(--blue), var(--aqua));
+      color: white;
+      border: none;
+      cursor: pointer;
+      height: 38px;
+      border-radius: 30px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
+      transition: all 0.25s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .add-cart-btn:hover {
+      box-shadow: 0 4px 16px rgba(0, 180, 216, 0.4);
+      transform: scale(1.02);
+    }
+
+    .add-cart-btn.added {
+      background: linear-gradient(135deg, var(--success), #00e5b4);
+      animation: addedAnim 0.4s ease;
+    }
+
+    @keyframes addedAnim {
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.06);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    /* ── CART SIDEBAR ── */
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(11, 31, 58, 0.5);
+      backdrop-filter: blur(4px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    .cart-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .cart-sidebar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: min(460px, 100vw);
+      background: white;
+      z-index: 1001;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      box-shadow: -8px 0 40px rgba(21, 101, 192, 0.15);
+    }
+
+    .cart-sidebar.open {
+      transform: translateX(0);
+    }
+
+    .cart-header {
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--crystal);
+      background: linear-gradient(135deg, var(--navy), var(--deep));
+      color: white;
+    }
+
+    .cart-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .cart-close {
+      width: 36px;
+      height: 36px;
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      cursor: pointer;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      transition: background 0.2s;
+    }
+
+    .cart-close:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .cart-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+    }
+
+    .cart-empty {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--gray);
+    }
+
+    .cart-empty-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 16px;
+      background: var(--frost);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cart-item {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      padding: 14px;
+      background: var(--light);
+      border-radius: var(--radius-sm);
+      margin-bottom: 12px;
+      border: 1px solid rgba(66, 165, 245, 0.1);
+      animation: slideIn 0.3s ease;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .cart-item-img {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--frost), var(--crystal));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .cart-item-info {
+      flex: 1;
+    }
+
+    .cart-item-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--navy);
+      margin-bottom: 3px;
+    }
+
+    .cart-item-price {
+      font-size: 0.8rem;
+      color: var(--aqua);
+      font-weight: 600;
+    }
+
+    .cart-item-qty {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .cart-qty-btn {
+      width: 28px;
+      height: 28px;
+      background: white;
+      border: 1.5px solid var(--crystal);
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s;
+    }
+
+    .cart-qty-btn:hover {
+      background: var(--frost);
+      border-color: var(--sky);
+    }
+
+    .cart-qty-num {
+      font-size: 0.9rem;
+      font-weight: 600;
+      min-width: 20px;
+      text-align: center;
+    }
+
+    .cart-item-remove {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #ccc;
+      font-size: 1.2rem;
+      padding: 4px;
+      transition: color 0.15s;
+    }
+
+    .cart-item-remove:hover {
+      color: #ff4757;
+    }
+
+    .cart-footer {
+      padding: 20px 24px;
+      border-top: 1px solid var(--crystal);
+      background: white;
+    }
+
+    .cart-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .cart-total-label {
+      font-size: 0.9rem;
+      color: var(--gray);
+    }
+
+    .cart-total-val {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .cart-items-count {
+      font-size: 0.8rem;
+      color: var(--gray);
+      margin-bottom: 16px;
+    }
+
+    .checkout-btn {
+      width: 100%;
+      background: linear-gradient(135deg, var(--blue), var(--aqua));
+      color: white;
+      border: none;
+      cursor: pointer;
+      padding: 16px;
+      border-radius: 40px;
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: 'DM Sans', sans-serif;
+      box-shadow: 0 6px 24px rgba(0, 180, 216, 0.35);
+      transition: all 0.25s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .checkout-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(0, 180, 216, 0.45);
+    }
+
+    /* ── ORDER MODAL ── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1100;
+      background: rgba(11, 31, 58, 0.6);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .order-modal {
+      background: white;
+      border-radius: 24px;
+      width: 100%;
+      max-width: 560px;
+      max-height: 90vh;
+      overflow-y: auto;
+      transform: scale(0.9) translateY(20px);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 24px 80px rgba(21, 101, 192, 0.25);
+    }
+
+    .modal-overlay.open .order-modal {
+      transform: scale(1) translateY(0);
+    }
+
+    .modal-header {
+      padding: 28px 28px 20px;
+      background: linear-gradient(135deg, var(--navy), var(--deep));
+      border-radius: 24px 24px 0 0;
+      color: white;
+    }
+
+    .modal-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .modal-subtitle {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .modal-body {
+      padding: 28px;
+    }
+
+    .order-summary {
+      background: var(--light);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 24px;
+      border: 1px solid var(--crystal);
+    }
+
+    .order-summary-title {
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--navy);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .order-summary-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      padding: 4px 0;
+      color: var(--gray);
+    }
+
+    .order-summary-item span:last-child {
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid var(--crystal);
+      border-radius: 10px;
+      font-size: 0.95rem;
+      color: var(--navy);
+      font-family: 'DM Sans', sans-serif;
+      background: white;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+
+    .form-input:focus {
+      border-color: var(--sky);
+      box-shadow: 0 0 0 3px rgba(66, 165, 245, 0.12);
+    }
+
+    .form-input::placeholder {
+      color: #adb5bd;
+    }
+
+    textarea.form-input {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .modal-footer {
+      padding: 0 28px 28px;
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn-cancel {
+      flex: 1;
+      padding: 14px;
+      background: none;
+      border: 1.5px solid var(--crystal);
+      border-radius: 40px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--gray);
+      transition: all 0.2s;
+    }
+
+    .btn-cancel:hover {
+      border-color: var(--sky);
+      color: var(--blue);
+    }
+
+    .btn-whatsapp {
+      flex: 2;
+      padding: 14px;
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 40px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      font-family: 'DM Sans', sans-serif;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+      transition: all 0.25s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(37, 211, 102, 0.45);
+    }
+
+    /* ── SUCCESS ── */
+    .success-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1200;
+      background: rgba(11, 31, 58, 0.7);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    .success-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .success-card {
+      background: white;
+      border-radius: 24px;
+      padding: 48px 36px;
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+      transform: scale(0.8);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 24px 80px rgba(21, 101, 192, 0.25);
+    }
+
+    .success-overlay.open .success-card {
+      transform: scale(1);
+    }
+
+    .success-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 20px;
+      background: linear-gradient(135deg, var(--success), #00e5b4);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: successPop 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes successPop {
+      0% {
+        transform: scale(0) rotate(-45deg);
+      }
+
+      70% {
+        transform: scale(1.1) rotate(5deg);
+      }
+
+      100% {
+        transform: scale(1) rotate(0);
+      }
+    }
+
+    .success-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .success-msg {
+      color: var(--gray);
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    /* ── FLOATING WA ── */
+    .wa-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 800;
+      width: 58px;
+      height: 58px;
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s;
+      animation: waPulse 2.5s ease-in-out infinite;
+    }
+
+    .wa-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 32px rgba(37, 211, 102, 0.55);
+    }
+
+    @keyframes waPulse {
+
+      0%,
+      100% {
+        box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45);
+      }
+
+      50% {
+        box-shadow: 0 6px 32px rgba(37, 211, 102, 0.65), 0 0 0 8px rgba(37, 211, 102, 0.1);
+      }
+    }
+
+    /* ── WHY SECTION ── */
+    .why-section {
+      background: white;
+      padding: 64px 24px;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .why-card {
+      text-align: center;
+      padding: 32px 20px;
+      border-radius: var(--radius);
+      border: 1px solid var(--crystal);
+      background: var(--light);
+      transition: all 0.3s;
+    }
+
+    .why-card:hover {
+      border-color: rgba(0, 180, 216, 0.3);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+      background: white;
+    }
+
+    .why-icon {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 16px;
+      background: linear-gradient(135deg, rgba(21, 101, 192, 0.1), rgba(0, 180, 216, 0.1));
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--blue);
+    }
+
+    .why-title {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .why-desc {
+      font-size: 0.85rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      color: white;
+      padding: 48px 24px 32px;
+    }
+
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    .footer-brand p {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.88rem;
+      line-height: 1.7;
+      margin-top: 14px;
+      max-width: 300px;
+    }
+
+    .footer-heading {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--aqua);
+      margin-bottom: 14px;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 8px;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 0.88rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      max-width: 1280px;
+      margin: 32px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-bottom p {
+      color: rgba(255, 255, 255, 0.35);
+      font-size: 0.82rem;
+    }
+
+    /* ── MOBILE NAV ── */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      color: var(--navy);
+    }
+
+    /* ── TOAST ── */
+    .toast-container {
+      position: fixed;
+      bottom: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2000;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      pointer-events: none;
+    }
+
+    .toast {
+      background: var(--navy);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+      border-left: 3px solid var(--aqua);
+      animation: toastIn 0.3s ease, toastOut 0.3s ease 2.5s forwards;
+      white-space: nowrap;
+    }
+
+    @keyframes toastIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes toastOut {
+      from {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      to {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+      }
+
+      .hero-visual {
+        justify-content: center;
+      }
+
+      .hero-stats {
+        justify-content: center;
+      }
+
+      .hero-cta {
+        justify-content: center;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: flex;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .features-inner {
+        gap: 0;
+      }
+
+      .feature-item {
+        padding: 6px 10px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .bottle-card {
+        padding: 14px;
+      }
+
+      .bottle-card:nth-child(2) {
+        margin-top: 0;
+      }
+
+      .hero-stats {
+        gap: 20px;
+      }
+
+      .bulk-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <a class="logo" href="#">
+        <div style="width:44px;height:44px;background:linear-gradient(135deg,#1a7a99,#2bbcd4);clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);display:flex;align-items:center;justify-content:center;font-family:sans-serif;font-weight:700;font-size:10px;color:white;text-align:center;line-height:1.1;letter-spacing:.5px;">PRATA<br>AQUA</div>
+        <div class="logo-text">
+          <span style="font-size:1rem;letter-spacing:2px;">PRATA <span style="color:var(--aqua)">AQUA</span></span>
+          <span>Pure Drinking Water</span>
+        </div>
+      </a>
+      <nav>
+        <a href="#products">Products</a>
+        
+        <a href="#why">Why Us</a>
+        <a href="tel:8160485641">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="cart-btn" onclick="openCart()">
+          <div class="cart-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <path d="M16 10a4 4 0 01-8 0" />
+            </svg>
+          </div>
+          Cart
+          <span class="cart-badge" id="cartBadge">0</span>
+        </button>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor">
+            <circle cx="5" cy="5" r="5" />
+          </svg>
+          FSSAI  Certified Pure Water
+        </div>
+        <h1 class="hero-title">
+          Hydrate with<br />
+          <span class="accent">Purity.</span> Live<br />
+          with Clarity.
+        </h1>
+        <p class="hero-desc">
+          Premium packaged drinking water sourced from deep aquifers, processed through multi-stage purification.
+          Available in 200ml, 400ml and 750ml variants.
+        </p>
+        <div class="hero-cta">
+          <a class="btn-primary" href="#products">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <path d="M16 10a4 4 0 01-8 0" />
+            </svg>
+            Shop Now
+          </a>
+          
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-num">99.9%</div>
+            <div class="stat-label">Purity Rate</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">3+</div>
+            <div class="stat-label">Sizes Available</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">24h</div>
+            <div class="stat-label">Fast Delivery</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="bottle-card">
+          <img class="bottle-svg" src="750ML.png" alt="PRATA AQUA 750ml"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+          <svg style="display:none;width:60px;height:180px;" viewBox="0 0 60 120" xmlns="http://www.w3.org/2000/svg">
+            <rect x="20" y="0" width="20" height="12" rx="4" fill="#0097a7"/>
+            <path d="M14 18 Q10 25 10 35 L10 100 Q10 110 20 112 L40 112 Q50 110 50 100 L50 35 Q50 25 46 18 Z" fill="#1565c0" opacity="0.85"/>
+            <path d="M17 18 Q14 25 14 35 L14 100 Q14 108 22 110 L38 110 Q46 108 46 100 L46 35 Q46 25 43 18 Z" fill="#42a5f5" opacity="0.5"/>
+            <rect x="14" y="55" width="32" height="32" rx="4" fill="white" opacity="0.12"/>
+            <text x="30" y="68" font-size="6.5" fill="white" text-anchor="middle" font-family="Georgia,serif" font-weight="bold">PRATA</text>
+            <text x="30" y="78" font-size="5" fill="rgba(255,255,255,0.8)" text-anchor="middle" font-family="sans-serif">AQUA</text>
+            <text x="30" y="87" font-size="5.5" fill="#00d4ff" text-anchor="middle" font-family="sans-serif" font-weight="bold">750ml</text>
+          </svg>
+          <div class="bottle-label">750ml</div>
+        </div>
+        <div class="bottle-card">
+          <img class="bottle-svg" src="400ML.png" alt="PRATA AQUA 400ml"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+          <svg style="display:none;width:50px;height:148px;" viewBox="0 0 50 100" xmlns="http://www.w3.org/2000/svg">
+            <rect x="16" y="0" width="18" height="10" rx="3" fill="#0097a7"/>
+            <path d="M12 15 Q8 22 8 30 L8 82 Q8 90 18 92 L32 92 Q42 90 42 82 L42 30 Q42 22 38 15 Z" fill="#1565c0" opacity="0.85"/>
+            <path d="M15 15 Q12 22 12 30 L12 82 Q12 89 20 91 L30 91 Q38 89 38 82 L38 30 Q38 22 35 15 Z" fill="#42a5f5" opacity="0.45"/>
+            <rect x="12" y="44" width="26" height="28" rx="3" fill="white" opacity="0.12"/>
+            <text x="25" y="56" font-size="5.5" fill="white" text-anchor="middle" font-family="Georgia,serif" font-weight="bold">PRATA</text>
+            <text x="25" y="65" font-size="4.5" fill="rgba(255,255,255,0.8)" text-anchor="middle" font-family="sans-serif">AQUA</text>
+            <text x="25" y="73" font-size="5" fill="#00d4ff" text-anchor="middle" font-family="sans-serif" font-weight="bold">400ml</text>
+          </svg>
+          <div class="bottle-label">400ml</div>
+        </div>
+        <div class="bottle-card">
+          <img class="bottle-svg" src="200ML.png" alt="PRATA AQUA 200ml"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+          <svg style="display:none;width:40px;height:118px;" viewBox="0 0 40 80" xmlns="http://www.w3.org/2000/svg">
+            <rect x="13" y="0" width="14" height="8" rx="3" fill="#0097a7"/>
+            <path d="M9 12 Q6 17 6 23 L6 65 Q6 72 14 74 L26 74 Q34 72 34 65 L34 23 Q34 17 31 12 Z" fill="#1565c0" opacity="0.85"/>
+            <path d="M11 12 Q9 17 9 23 L9 65 Q9 71 16 73 L24 73 Q31 71 31 65 L31 23 Q31 17 29 12 Z" fill="#42a5f5" opacity="0.45"/>
+            <rect x="9" y="34" width="22" height="24" rx="3" fill="white" opacity="0.12"/>
+            <text x="20" y="44" font-size="4.5" fill="white" text-anchor="middle" font-family="Georgia,serif" font-weight="bold">PRATA</text>
+            <text x="20" y="52" font-size="3.8" fill="rgba(255,255,255,0.8)" text-anchor="middle" font-family="sans-serif">AQUA</text>
+            <text x="20" y="59" font-size="4" fill="#00d4ff" text-anchor="middle" font-family="sans-serif" font-weight="bold">200ml</text>
+          </svg>
+          <div class="bottle-label">200ml</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES BAR -->
+  <div class="features-bar">
+    <div class="features-inner">
+      <div class="feature-item">
+        <div class="feature-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12l5 5L20 7" />
+          </svg>
+        </div>
+        <div class="feature-text">
+          <strong>FSSAI  Certified</strong>
+          <span>Quality Assured</span>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="12 6 12 12 16 14" />
+          </svg>
+        </div>
+        <div class="feature-text">
+          <strong>Same Day Dispatch</strong>
+          <span>Order before 2 PM</span>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+        </div>
+        <div class="feature-text">
+          <strong>Doorstep Delivery</strong>
+          <span>All areas covered</span>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+        </div>
+        <div class="feature-text">
+          <strong>Multi-Stage Purified</strong>
+          <span>RO + UV + TDS</span>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+              d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.9 2.18 2 2 0 012.88 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z" />
+          </svg>
+        </div>
+        <div class="feature-text">
+          <strong>WhatsApp Orders</strong>
+          <span>Quick and Easy</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCTS -->
+  <section class="section" id="products">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-tag">Our Products</div>
+        <h2 class="section-title">Choose Your Perfect Size</h2>
+        <p class="section-subtitle">Pure drinking water, available in three convenient sizes for every occasion —
+          events, offices, travel & daily use.</p>
+      </div>
+      <div class="product-grid" id="productGrid">
+        <!-- Injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY SECTION -->
+  <section class="why-section" id="why">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-tag">Why Prata Aqua</div>
+        <h2 class="section-title">Water You Can Trust</h2>
+        <p class="section-subtitle">Every drop of Prata Aqua passes through rigorous quality checks before it reaches
+          you.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+          </div>
+          <div class="why-title">100% Safe & Pure</div>
+          <div class="why-desc">Processed through RO, UV and mineralizer stages to ensure the highest purity standards.
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 12l2 2 4-4" />
+              <path d="M12 2a10 10 0 100 20 10 10 0 000-20z" />
+            </svg>
+          </div>
+          <div class="why-title">FSSAI  Certified</div>
+          <div class="why-desc">Fully compliant with Bureau of Indian Standards for packaged drinking water quality
+            norms.</div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" />
+              <line x1="8" y1="21" x2="16" y2="21" />
+              <line x1="12" y1="17" x2="12" y2="21" />
+            </svg>
+          </div>
+          <div class="why-title">Tamper-Proof Seal</div>
+          <div class="why-desc">Advanced tamper-evident caps ensure your water remains pure from factory to your hand.
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+          </div>
+          <div class="why-title">Fast Delivery</div>
+          <div class="why-desc">Order by 2 PM for same-day dispatch. Next-day delivery guaranteed for all locations.
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path
+                d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 002 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" />
+            </svg>
+          </div>
+          <div class="why-title">Eco Packaging</div>
+          <div class="why-desc">Food-grade PET bottles that are 100% recyclable. Committed to a cleaner environment.
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 00-3-3.87" />
+              <path d="M16 3.13a4 4 0 010 7.75" />
+            </svg>
+          </div>
+          <div class="why-title">Trusted by Thousands</div>
+          <div class="why-desc">Preferred by restaurants, events, offices and households across the region.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo" style="margin-bottom:0">
+          <div style="width:44px;height:44px;background:linear-gradient(135deg,#1a7a99,#2bbcd4);clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);display:flex;align-items:center;justify-content:center;font-family:sans-serif;font-weight:700;font-size:10px;color:white;text-align:center;line-height:1.1;letter-spacing:.5px;">PRATA<br>AQUA</div>
+          <div class="logo-text">
+            <span style="color:white;font-size:1rem;letter-spacing:2px;">PRATA <span style="color:var(--aqua)">AQUA</span></span>
+            <span>Pure Drinking Water</span>
+          </div>
+        </div>
+        <p>Delivering pure, safe and refreshing drinking water to your doorstep. Quality you can trust, purity you can
+          taste.</p>
+      </div>
+      <div>
+        <div class="footer-heading">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="#products">Products</a></li>
+          <li></li>
+          <li><a href="#why">Why Prata Aqua</a></li>
+          <li><a href="https://wa.me/918160485641" target="_blank">WhatsApp Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Contact</div>
+        <ul class="footer-links">
+          <li><a href="tel:8160485641">+91 81604 85641</a></li>
+          <li><a href="https://wa.me/918160485641" target="_blank">WhatsApp Chat</a></li>
+          <li><a href="#">info@prataaqua.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>2024 Prata Aqua. All rights reserved.</p>
+      <p>FSSAI  Certified Packaged Drinking Water</p>
+    </div>
+  </footer>
+
+  <!-- CART OVERLAY + SIDEBAR -->
+  <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <div>
+        <div class="cart-title">Your Cart</div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.5);margin-top:2px" id="cartItemCountHeader">0 items</div>
+      </div>
+      <button class="cart-close" onclick="closeCart()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+    </div>
+    <div class="cart-body" id="cartBody">
+      <div class="cart-empty" id="cartEmpty">
+        <div class="cart-empty-icon">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#42a5f5" stroke-width="1.5">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <path d="M16 10a4 4 0 01-8 0" />
+          </svg>
+        </div>
+        <h3 style="font-size:1rem;font-weight:600;margin-bottom:6px">Your cart is empty</h3>
+        <p style="font-size:0.85rem">Add products to place an order.</p>
+      </div>
+      <div id="cartItems"></div>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none">
+      <div class="cart-total">
+        <span class="cart-total-label">Estimated Total</span>
+        <span class="cart-total-val" id="cartTotal">Rs. 0</span>
+      </div>
+      <div class="cart-items-count" id="cartCountLabel">0 items in cart</div>
+      <button class="checkout-btn" onclick="openOrderModal()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="9 11 12 14 22 4" />
+          <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
+        </svg>
+        Proceed to Order
+      </button>
+    </div>
+  </div>
+
+  <!-- ORDER MODAL -->
+  <div class="modal-overlay" id="orderModal">
+    <div class="order-modal">
+      <div class="modal-header">
+        <div class="modal-title">Place Your Order</div>
+        <div class="modal-subtitle">Fill your details — we'll connect via WhatsApp</div>
+      </div>
+      <div class="modal-body">
+        <div class="order-summary">
+          <div class="order-summary-title">Order Summary</div>
+          <div id="modalOrderSummary"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="custName">Full Name *</label>
+            <input class="form-input" type="text" id="custName" placeholder="Your full name" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="custPhone">Mobile Number *</label>
+            <input class="form-input" type="tel" id="custPhone" placeholder="+91 XXXXX XXXXX" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="custAddress">Delivery Location *</label>
+          <input class="form-input" type="text" id="custAddress" placeholder="Area, Landmark, City" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="custDate">Date of Requirement *</label>
+          <input class="form-input" type="date" id="custDate" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="custNotes">Additional Notes (Optional)</label>
+          <textarea class="form-input" id="custNotes"
+            placeholder="Special instructions, delivery time preference, etc."></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-cancel" onclick="closeOrderModal()">Cancel</button>
+        <button class="btn-whatsapp" onclick="placeOrder()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+          </svg>
+          Send via WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUCCESS OVERLAY -->
+  <div class="success-overlay" id="successOverlay">
+    <div class="success-card">
+      <div class="success-icon">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
+          <polyline points="20 6 9 17 4 12" />
+        </svg>
+      </div>
+      <h2 class="success-title">Order Sent!</h2>
+      <p class="success-msg">Your order has been redirected to WhatsApp. Our team will confirm availability shortly.</p>
+      <button class="btn-primary" onclick="closeSuccess()" style="width:100%;justify-content:center">
+        Continue Shopping
+      </button>
+    </div>
+  </div>
+
+  <!-- FLOATING WA BUTTON -->
+  <button class="wa-float" onclick="openWhatsApp()" title="Chat on WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+    </svg>
+  </button>
+
+  <!-- TOAST CONTAINER -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script>
+    // ── PRODUCTS DATA ──
+    const PRODUCTS = [
+      {
+        id: 1,
+        name: 'Prata Aqua 750ml',
+        desc: 'Ideal for offices, restaurants and on-the-go hydration. Multi-stage purified with essential minerals retained for balanced pH.',
+        tags: ['Office Use', 'Restaurants', 'Events'],
+        price: 150,
+        badge: 'best',
+        badgeText: 'Best Seller',
+        size: '750ml',
+        imgSrc: '750ml box.png',
+        svgH: 120, svgW: 60,
+        svgBody: `<rect x="20" y="0" width="20" height="12" rx="4" fill="%230097a7"/><path d="M14 18 Q10 25 10 35 L10 100 Q10 110 20 112 L40 112 Q50 110 50 100 L50 35 Q50 25 46 18 Z" fill="%231565c0" opacity="0.8"/><path d="M17 18 Q14 25 14 35 L14 100 Q14 108 22 110 L38 110 Q46 108 46 100 L46 35 Q46 25 43 18 Z" fill="%2342a5f5" opacity="0.5"/><rect x="14" y="55" width="32" height="32" rx="4" fill="white" opacity="0.12"/><text x="30" y="68" font-size="6.5" fill="white" text-anchor="middle" font-family="Georgia,serif" font-weight="bold">PRATA</text><text x="30" y="78" font-size="5" fill="rgba(255,255,255,0.8)" text-anchor="middle" font-family="sans-serif">AQUA</text><text x="30" y="87" font-size="5.5" fill="%2300d4ff" text-anchor="middle" font-family="sans-serif" font-weight="bold">750ml</text>`
+      },
+      {
+        id: 2,
+        name: 'Prata Aqua 400ml',
+        desc: 'The perfect travel companion. Slim, ergonomic design with leak-proof cap. Great for gyms, schools and daily commute.',
+        tags: ['Travel', 'Gym', 'Daily Use'],
+        price: 160,
+        badge: 'pure',
+        badgeText: 'Pure Choice',
+        size: '400ml',
+        imgSrc: '400ml box.png',
+        svgH: 100, svgW: 50,
+        svgBody: `<rect x="16" y="0" width="18" height="10" rx="3" fill="%230097a7"/><path d="M12 15 Q8 22 8 30 L8 82 Q8 90 18 92 L32 92 Q42 90 42 82 L42 30 Q42 22 38 15 Z" fill="%231565c0" opacity="0.8"/><path d="M15 15 Q12 22 12 30 L12 82 Q12 89 20 91 L30 91 Q38 89 38 82 L38 30 Q38 22 35 15 Z" fill="%2342a5f5" opacity="0.45"/><rect x="12" y="44" width="26" height="28" rx="3" fill="white" opacity="0.12"/><text x="25" y="56" font-size="5.5" fill="white" text-anchor="middle" font-family="Georgia,serif" font-weight="bold">PRATA</text><text x="25" y="65" font-size="4.5" fill="rgba(255,255,255,0.8)" text-anchor="middle" font-family="sans-serif">AQUA</text><text x="25" y="73" font-size="5" fill="%2300d4ff" text-anchor="middle" font-family="sans-serif" font-weight="bold">400ml</text>`
+      },
+      {
+        id: 3,
+        name: 'Prata Aqua 200ml',
+        desc: 'Compact cup-size bottle, perfect for weddings, pharma counters, hospital beds and airline service. Bulk event pack available.',
+        tags: ['Weddings', 'Hospitals', 'Airlines'],
+        price: 180,
+        badge: 'new',
+        badgeText: 'Event Pack',
+        size: '200ml',
+        imgSrc: '200ml box.png',
+        svgH: 80, svgW: 40,
+        svgBody: `<rect x="13" y="0" width="14" height="8" rx="3" fill="%230097a7"/><path d="M9 12 Q6 17 6 23 L6 65 Q6 72 14 74 L26 74 Q34 72 34 65 L34 23 Q34 17 31 12 Z" fill="%231565c0" opacity="0.8"/><path d="M11 12 Q9 17 9 23 L9 65 Q9 71 16 73 L24 73 Q31 71 31 65 L31 23 Q31 17 29 12 Z" fill="%2342a5f5" opacity="0.45"/><rect x="9" y="34" width="22" height="24" rx="3" fill="white" opacity="0.12"/><text x="20" y="44" font-size="4.5" fill="white" text-anchor="middle" font-family="Georgia,serif" font-weight="bold">PRATA</text><text x="20" y="52" font-size="3.8" fill="rgba(255,255,255,0.8)" text-anchor="middle" font-family="sans-serif">AQUA</text><text x="20" y="59" font-size="4" fill="%2300d4ff" text-anchor="middle" font-family="sans-serif" font-weight="bold">200ml</text>`
+      }
+    ];
+
+    // ── CART STATE ──
+    let cart = {};
+    let productQtys = { 1: 1, 2: 1, 3: 1 };
+
+    // ── RENDER PRODUCTS ──
+    function renderProducts() {
+      const grid = document.getElementById('productGrid');
+      grid.innerHTML = PRODUCTS.map(p => `
+      <div class="product-card" id="card-${p.id}">
+        <div class="product-badge-row">
+          <span class="badge badge-${p.badge}">${p.badgeText}</span>
+        </div>
+        <div class="product-img-wrap">
+          <img class="product-svg" src="${p.imgSrc}" alt="${p.name} product image" loading="lazy" decoding="async"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          <div class="product-svg-fallback" style="display:none;">
+            <svg viewBox="0 0 ${p.svgW} ${p.svgH}" xmlns="http://www.w3.org/2000/svg">
+              ${p.svgBody}
+            </svg>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">${p.name}</h3>
+          <p class="product-desc">${p.desc}</p>
+          <div class="product-meta">
+            ${p.tags.map(t => `<span class="meta-tag">${t}</span>`).join('')}
+          </div>
+          <div class="product-price">
+            <span class="price-main">Rs. ${p.price}</span>
+            <span class="price-unit">/ bottle</span>
+          </div>
+          <div class="product-actions">
+            <div class="qty-control">
+              <button class="qty-btn" onclick="changeQty(${p.id}, -1)">-</button>
+              <span class="qty-val" id="qty-${p.id}">1</span>
+              <button class="qty-btn" onclick="changeQty(${p.id}, 1)">+</button>
+            </div>
+            <button class="add-cart-btn" id="addBtn-${p.id}" onclick="addToCart(${p.id})">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    `).join('');
+    }
+
+    function changeQty(id, delta) {
+      productQtys[id] = Math.max(1, (productQtys[id] || 1) + delta);
+      document.getElementById(`qty-${id}`).textContent = productQtys[id];
+    }
+
+    function addToCart(id) {
+      const product = PRODUCTS.find(p => p.id === id);
+      const qty = productQtys[id] || 1;
+      if (cart[id]) {
+        cart[id].qty += qty;
+      } else {
+        cart[id] = { ...product, qty };
+      }
+      productQtys[id] = 1;
+      document.getElementById(`qty-${id}`).textContent = 1;
+      updateCartUI();
+      const btn = document.getElementById(`addBtn-${id}`);
+      btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Added!`;
+      btn.classList.add('added');
+      setTimeout(() => {
+        btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add to Cart`;
+        btn.classList.remove('added');
+      }, 1500);
+      animateBadge();
+      showToast(`${product.name} added to cart`);
+    }
+
+    function animateBadge() {
+      const badge = document.getElementById('cartBadge');
+      badge.classList.remove('pop');
+      void badge.offsetWidth;
+      badge.classList.add('pop');
+    }
+
+    function updateCartUI() {
+      const items = Object.values(cart);
+      const totalQty = items.reduce((a, i) => a + i.qty, 0);
+      const totalPrice = items.reduce((a, i) => a + i.qty * i.price, 0);
+      document.getElementById('cartBadge').textContent = totalQty;
+      document.getElementById('cartItemCountHeader').textContent = `${totalQty} item${totalQty !== 1 ? 's' : ''}`;
+      document.getElementById('cartTotal').textContent = `Rs. ${totalPrice}`;
+      document.getElementById('cartCountLabel').textContent = `${totalQty} item${totalQty !== 1 ? 's' : ''} in cart`;
+      const cartItemsEl = document.getElementById('cartItems');
+      const cartEmptyEl = document.getElementById('cartEmpty');
+      const cartFooterEl = document.getElementById('cartFooter');
+      if (items.length === 0) {
+        cartEmptyEl.style.display = '';
+        cartItemsEl.innerHTML = '';
+        cartFooterEl.style.display = 'none';
+      } else {
+        cartEmptyEl.style.display = 'none';
+        cartFooterEl.style.display = '';
+        cartItemsEl.innerHTML = items.map(item => `
+        <div class="cart-item">
+          <div class="cart-item-img">
+            <svg width="${Math.floor(item.svgW * 0.6)}" height="${Math.floor(item.svgH * 0.6)}" viewBox="0 0 ${item.svgW} ${item.svgH}" xmlns="http://www.w3.org/2000/svg">${item.svgBody}</svg>
+          </div>
+          <div class="cart-item-info">
+            <div class="cart-item-name">${item.name}</div>
+            <div class="cart-item-price">Rs. ${item.price} / bottle</div>
+            <div class="cart-item-qty">
+              <button class="cart-qty-btn" onclick="updateCartQty(${item.id}, -1)">-</button>
+              <span class="cart-qty-num">${item.qty}</span>
+              <button class="cart-qty-btn" onclick="updateCartQty(${item.id}, 1)">+</button>
+              <span style="font-size:0.8rem;color:#1565c0;font-weight:600;margin-left:4px">= Rs. ${item.qty * item.price}</span>
+            </div>
+          </div>
+          <button class="cart-item-remove" onclick="removeCartItem(${item.id})">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+      `).join('');
+      }
+    }
+
+    function updateCartQty(id, delta) {
+      if (!cart[id]) return;
+      cart[id].qty += delta;
+      if (cart[id].qty <= 0) delete cart[id];
+      updateCartUI();
+    }
+
+    function removeCartItem(id) {
+      delete cart[id];
+      updateCartUI();
+      showToast('Item removed from cart');
+    }
+
+    function openCart() {
+      document.getElementById('cartOverlay').classList.add('open');
+      document.getElementById('cartSidebar').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCart() {
+      document.getElementById('cartOverlay').classList.remove('open');
+      document.getElementById('cartSidebar').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // ── ORDER MODAL ──
+    function openOrderModal() {
+      const items = Object.values(cart);
+      if (items.length === 0) { showToast('Your cart is empty!'); return; }
+      closeCart();
+      const summaryEl = document.getElementById('modalOrderSummary');
+      summaryEl.innerHTML = items.map(item =>
+        `<div class="order-summary-item"><span>${item.name}</span><span>x ${item.qty} = Rs. ${item.qty * item.price}</span></div>`
+      ).join('') +
+        `<div class="order-summary-item" style="margin-top:8px;padding-top:8px;border-top:1px solid var(--crystal)">
+      <span style="font-weight:700;color:var(--navy)">Total</span>
+      <span style="color:var(--blue);font-size:1rem">Rs. ${items.reduce((a, i) => a + i.qty * i.price, 0)}</span>
+    </div>`;
+      const today = new Date();
+      const tomorrow = new Date(today); tomorrow.setDate(today.getDate() + 1);
+      document.getElementById('custDate').min = today.toISOString().split('T')[0];
+      document.getElementById('custDate').value = tomorrow.toISOString().split('T')[0];
+      document.getElementById('orderModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeOrderModal() {
+      document.getElementById('orderModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // ── PLACE ORDER ──
+    function placeOrder() {
+      const name = document.getElementById('custName').value.trim();
+      const phone = document.getElementById('custPhone').value.trim();
+      const address = document.getElementById('custAddress').value.trim();
+      const date = document.getElementById('custDate').value;
+      const notes = document.getElementById('custNotes').value.trim();
+      if (!name) { showToast('Please enter your name'); document.getElementById('custName').focus(); return; }
+      if (!phone) { showToast('Please enter your mobile number'); document.getElementById('custPhone').focus(); return; }
+      if (!address) { showToast('Please enter delivery location'); document.getElementById('custAddress').focus(); return; }
+      if (!date) { showToast('Please select date of requirement'); document.getElementById('custDate').focus(); return; }
+      const items = Object.values(cart);
+      const orderLines = items.map(i => `- ${i.name} x ${i.qty}`).join('\n');
+      const totalAmt = items.reduce((a, i) => a + i.qty * i.price, 0);
+      const formattedDate = new Date(date).toLocaleDateString('en-IN', { day: '2-digit', month: 'long', year: 'numeric' });
+      let message = `Hello Prata Aqua,\n\nI would like to place an order:\n\nOrder Details:\n${orderLines}\n\nTotal Amount: Rs. ${totalAmt}\n\nName: ${name}\nMobile: ${phone}\nLocation: ${address}\nDelivery Date: ${formattedDate}`;
+      if (notes) message += `\nNotes: ${notes}`;
+      message += `\n\nPlease confirm availability. Thank you!`;
+      const waURL = `https://wa.me/918160485641?text=${encodeURIComponent(message)}`;
+      closeOrderModal();
+      cart = {};
+      updateCartUI();
+      ['custName', 'custPhone', 'custAddress', 'custNotes'].forEach(id => document.getElementById(id).value = '');
+      setTimeout(() => {
+        document.getElementById('successOverlay').classList.add('open');
+        window.open(waURL, '_blank');
+      }, 200);
+    }
+
+    function closeSuccess() {
+      document.getElementById('successOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // ── BULK ORDER ──
+    function bulkOrder(qty, name) {
+      const message = `Hello Prata Aqua,\n\nI would like to enquire about a bulk order:\n\nProduct: ${name}\nQuantity: ${qty} bottles\n\nPlease share pricing and availability. Thank you!`;
+      window.open(`https://wa.me/918160485641?text=${encodeURIComponent(message)}`, '_blank');
+    }
+
+    function openWhatsApp() {
+      window.open('https://wa.me/918160485641?text=Hello%20Prata%20Aqua%2C%20I%20would%20like%20to%20enquire%20about%20your%20products.', '_blank');
+    }
+
+    // ── TOAST ──
+    function showToast(msg) {
+      const container = document.getElementById('toastContainer');
+      const toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.textContent = msg;
+      container.appendChild(toast);
+      setTimeout(() => toast.remove(), 3000);
+    }
+
+    // ── MOBILE MENU ──
+    function toggleMobileMenu() {
+      const nav = document.querySelector('nav');
+      if (nav.style.display === 'flex') {
+        nav.style.display = 'none';
+      } else {
+        nav.style.cssText = 'display:flex;flex-direction:column;position:absolute;top:68px;left:0;right:0;background:white;padding:16px 24px;border-bottom:1px solid #e0f0ff;z-index:899;gap:4px;box-shadow:0 8px 24px rgba(21,101,192,0.1)';
+      }
+    }
+
+    // ── CLOSE MODAL ON OVERLAY CLICK ──
+    document.getElementById('orderModal').addEventListener('click', function (e) {
+      if (e.target === this) closeOrderModal();
+    });
+    document.getElementById('successOverlay').addEventListener('click', function (e) {
+      if (e.target === this) closeSuccess();
+    });
+
+    // ── INIT ──
+    renderProducts();
+    updateCartUI();
+
+    // ── SCROLL ANIMATIONS ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.product-card, .why-card, .bulk-card').forEach((el, i) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(24px)';
+        el.style.transition = `opacity 0.5s ease ${i * 0.08}s, transform 0.5s ease ${i * 0.08}s`;
+        observer.observe(el);
+      });
+    });
+
+    setTimeout(() => {
+      document.querySelectorAll('.product-card, .why-card, .bulk-card').forEach((el, i) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(24px)';
+        el.style.transition = `opacity 0.5s ease ${i * 0.08}s, transform 0.5s ease ${i * 0.08}s`;
+        observer.observe(el);
+      });
+    }, 100);
+  </script>
+</body>
+
+</html>
